@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑料社-黑料社热门事件_黑料社爆料资讯与时事观点聚合</title>
+<meta name="description" content="黑料社是一个聚合网络热门事件、爆料资讯与时事观点的信息站点。本站整合黑料社常见话题、事件脉络梳理与读者讨论入口，帮助你按类别浏览热点内容、了解事件来龙去脉与多方观点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1d26'/%3E%3Cpath d='M16 18h32v6H16zm0 12h20v6H16zm0 12h26v6H16z' fill='%23e6b455'/%3E%3Ccircle cx='48' cy='40' r='7' fill='%23e05a4f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#16181f;
+  --ink-2:#2a2e3a;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#e2ddd2;
+  --gold:#c99530;
+  --gold-soft:#f1e2bd;
+  --red:#c0443a;
+  --muted:#6b6f7b;
+  --radius:14px;
+  --maxw:1140px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.01em;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+
+/* ---------- header ---------- */
+.site-header{
+  background:var(--ink);
+  color:#f3f1ea;
+  border-bottom:3px solid var(--gold);
+  position:sticky;top:0;z-index:50;
+}
+.header-inner{
+  display:flex;align-items:center;gap:18px;
+  max-width:var(--maxw);margin:0 auto;padding:12px 20px;
+  flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;letter-spacing:.04em;}
+.logo-mark{width:34px;height:34px;flex:0 0 auto;}
+.logo-text{color:#fff;}
+.logo-text em{font-style:normal;color:var(--gold);}
+.nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;}
+.nav a{
+  padding:6px 12px;border-radius:999px;font-size:.92rem;color:#d7d4ca;
+  transition:background .18s,color .18s;
+}
+.nav a:hover,.nav a:focus-visible{background:#2c303d;color:#fff;}
+.nav a.cta{background:var(--gold);color:#1a1d26;font-weight:700;}
+.nav a.cta:hover{background:#e0ad4c;}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(circle at 88% 12%,rgba(201,149,48,.20),transparent 46%),
+    radial-gradient(circle at 8% 92%,rgba(192,68,58,.16),transparent 44%),
+    var(--ink-2);
+  color:#f3f1ea;
+  padding:52px 0 46px;
+  border-bottom:1px solid #3a3f4d;
+}
+.hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:38px;align-items:center;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8rem;letter-spacing:.12em;color:var(--gold-soft);
+  border:1px solid rgba(201,149,48,.55);border-radius:999px;
+  padding:4px 14px;margin-bottom:18px;
+}
+.hero h1{
+  font-size:clamp(2rem,4.6vw,3rem);
+  line-height:1.2;margin:0 0 16px;font-weight:900;letter-spacing:.02em;
+}
+.hero h1 .hl{
+  background:linear-gradient(transparent 62%,rgba(201,149,48,.55) 62%);
+  padding:0 2px;
+}
+.hero-lead{margin:0 0 24px;color:#cfccc2;max-width:36em;font-size:1.02rem;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:11px 24px;border-radius:999px;
+  font-weight:700;font-size:.95rem;border:1px solid transparent;
+  transition:transform .16s,background .18s,color .18s;
+}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--gold);color:#1a1d26;}
+.btn-primary:hover{background:#e0ad4c;}
+.btn-ghost{border-color:#5b6070;color:#e6e2d7;}
+.btn-ghost:hover{background:#343949;}
+.hero-stats{display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;}
+.hero-stats div{font-size:.85rem;color:#a9a6a0;line-height:1.4;}
+.hero-stats strong{display:block;font-size:1.4rem;color:#fff;font-weight:800;}
+.hero-visual{
+  background:rgba(255,255,255,.04);border:1px solid #414756;border-radius:var(--radius);
+  padding:18px;
+}
+.hero-visual svg{width:100%;height:auto;}
+.hero-visual figcaption{font-size:.8rem;color:#9fa2ac;margin-top:10px;text-align:center;}
+
+/* ---------- section shell ---------- */
+section{padding:52px 0;}
+.sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-head h2{
+  font-size:clamp(1.35rem,2.6vw,1.7rem);margin:0;font-weight:800;letter-spacing:.02em;
+  padding-left:14px;border-left:5px solid var(--gold);line-height:1.3;
+}
+.sec-head p{margin:0;color:var(--muted);font-size:.93rem;}
+.sec-head .more{margin-left:auto;font-size:.9rem;color:var(--gold);font-weight:700;}
+.sec-head .more:hover{text-decoration:underline;}
+
+/* ---------- filter ---------- */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:26px;
+}
+.filter-bar label{font-size:.88rem;color:var(--muted);font-weight:600;}
+.filter-bar input[type="search"]{
+  flex:1 1 220px;min-width:0;padding:9px 13px;border:1px solid var(--line);
+  border-radius:9px;font:inherit;font-size:.92rem;background:#fbfaf7;color:var(--ink);
+}
+.filter-bar input[type="search"]:focus{outline:2px solid var(--gold-soft);border-color:var(--gold);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{
+  padding:6px 14px;border-radius:999px;border:1px solid var(--line);
+  background:#fbfaf7;font-size:.86rem;cursor:pointer;color:var(--ink-2);
+  font-family:inherit;transition:background .16s,color .16s,border-color .16s;
+}
+.chip:hover{border-color:var(--gold);}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* ---------- cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;display:flex;flex-direction:column;gap:12px;
+  transition:box-shadow .2s,transform .2s,border-color .2s;
+}
+.card:hover{box-shadow:0 10px 26px rgba(22,24,31,.09);transform:translateY(-2px);border-color:#d3ccbb;}
+.card .kicker{
+  font-size:.76rem;letter-spacing:.1em;color:var(--red);font-weight:800;text-transform:uppercase;
+}
+.card h3{margin:0;font-size:1.08rem;line-height:1.5;font-weight:800;}
+.card h3 a:hover{color:var(--gold);}
+.card p{margin:0;font-size:.92rem;color:#4c505c;line-height:1.7;}
+.card .meta{
+  margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);
+  display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);
+}
+.tagline{display:flex;gap:6px;flex-wrap:wrap;}
+.tagline span{
+  font-size:.74rem;background:#f3efe4;color:#7a6531;border-radius:5px;padding:2px 8px;
+}
+
+/* ---------- featured list ---------- */
+.feat{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:start;}
+.feat-main{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+}
+.feat-main .banner{background:#232733;padding:0;}
+.feat-main .body{padding:24px;}
+.feat-main h3{margin:0 0 12px;font-size:1.3rem;line-height:1.45;font-weight:900;}
+.feat-main p{margin:0 0 16px;color:#4c505c;font-size:.95rem;}
+.timeline{list-style:none;margin:0;padding:0;}
+.timeline li{
+  position:relative;padding:0 0 16px 22px;border-left:2px solid var(--gold-soft);margin-left:6px;
+}
+.timeline li:last-child{padding-bottom:0;border-left-color:transparent;}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;
+  background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-soft);
+}
+.timeline time{display:block;font-size:.78rem;color:var(--muted);letter-spacing:.04em;}
+.timeline strong{display:block;font-size:.94rem;margin:2px 0 2px;}
+.timeline span{font-size:.86rem;color:#5b5f6b;}
+
+/* ---------- guide / prose ---------- */
+.guide{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.prose-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 44px;}
+.prose h3{
+  font-size:1.06rem;margin:0 0 8px;font-weight:800;
+  display:flex;align-items:center;gap:9px;
+}
+.prose h3::before{
+  content:"";width:8px;height:8px;background:var(--red);border-radius:2px;transform:rotate(45deg);flex:0 0 auto;
+}
+.prose p{margin:0;font-size:.94rem;color:#444853;line-height:1.85;}
+
+/* ---------- voices ---------- */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.voice{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:10px;padding:20px;
+}
+.voice p{margin:0 0 14px;font-size:.93rem;color:#3f434e;line-height:1.8;}
+.voice footer{font-size:.82rem;color:var(--muted);}
+.voice footer b{color:var(--ink-2);}
+
+/* ---------- downloads ---------- */
+.dl-box{
+  background:var(--ink-2);color:#eeece4;border-radius:var(--radius);
+  padding:30px 32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+  border:1px solid #3a3f4d;
+}
+.dl-box h3{margin:0 0 8px;font-size:1.2rem;font-weight:800;color:#fff;}
+.dl-box p{margin:0;font-size:.9rem;color:#b9b6ae;max-width:52em;}
+.btn-dl{
+  display:inline-block;padding:12px 30px;border-radius:999px;background:var(--gold);
+  color:#1a1d26;font-weight:800;font-size:.95rem;white-space:nowrap;
+  pointer-events:none;opacity:.9;
+}
+.dl-note{margin-top:10px;font-size:.78rem;color:#8f929c;}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--ink);color:#b6b3ab;padding:38px 0 28px;font-size:.88rem;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;}
+.footer-grid h4{margin:0 0 10px;font-size:.92rem;color:#fff;font-weight:800;}
+.footer-grid ul{list-style:none;margin:0;padding:0;line-height:2.1;}
+.footer-grid a:hover{color:var(--gold);}
+.footer-bottom{
+  margin-top:26px;padding-top:18px;border-top:1px solid #343846;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:#8b8e98;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{order:-1;max-width:360px;}
+  .grid,.voices{grid-template-columns:repeat(2,1fr);}
+  .feat{grid-template-columns:1fr;}
+  .prose-grid{grid-template-columns:1fr;gap:26px;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .dl-box{grid-template-columns:1fr;}
+}
+@media (max-width:620px){
+  body{font-size:15px;}
+  .header-inner{padding:10px 16px;gap:10px;}
+  .nav{width:100%;margin-left:0;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+  .nav a{white-space:nowrap;font-size:.86rem;padding:5px 10px;}
+  .hero{padding:34px 0 32px;}
+  .hero-visual{max-width:100%;}
+  .hero-stats{gap:18px;}
+  section{padding:36px 0;}
+  .grid,.voices{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .card{padding:18px;}
+  .dl-box{padding:22px;}
+  .filter-bar{padding:12px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#top" aria-label="黑料社首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#232733"/>
+        <path d="M15 17h34v6H15z" fill="#e6b455"/>
+        <path d="M15 29h21v6H15z" fill="#c99530"/>
+        <path d="M15 41h27v6H15z" fill="#a97c25"/>
+        <circle cx="47" cy="44" r="7.5" fill="#c0443a"/>
+        <circle cx="47" cy="44" r="2.6" fill="#fff"/>
+      </svg>
+      <span class="logo-text">黑料社</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#events">热门事件</a>
+      <a href="#timeline">事件脉络</a>
+      <a href="#guide">阅读指南</a>
+      <a href="#voices">读者观点</a>
+      <a href="#downloads" class="cta">内容下载</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">热点聚合 · 事件梳理 · 多方观点</span>
+        <h1 id="hero-title">黑料社</h1>
+        <p class="hero-lead">
+          黑料社是一个围绕网络热门事件与爆料资讯展开的信息聚合页面。我们把零散的话题线索整理成可阅读的条目：先给结论，再交代事件脉络，最后列出不同立场的说法，方便你按类别快速找到自己关心的部分。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#events">浏览热门事件</a>
+          <a class="btn btn-ghost" href="#guide">了解阅读方式</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6</strong>个主题分区</div>
+          <div><strong>12</strong>条事件条目</div>
+          <div><strong>3</strong>类观点视角</div>
+        </div>
+      </div>
+      <figure class="hero-visual">
+        <svg viewBox="0 0 340 240" role="img" aria-label="黑料社内容结构示意图：话题线索汇聚成事件条目">
+          <rect x="0" y="0" width="340" height="240" rx="12" fill="#1e222d"/>
+          <circle cx="52" cy="46" r="16" fill="#c99530" opacity=".85"/>
+          <circle cx="52" cy="96" r="11" fill="#8a6a24" opacity=".8"/>
+          <circle cx="52" cy="140" r="8" fill="#c0443a" opacity=".8"/>
+          <circle cx="52" cy="180" r="13" fill="#4b5costume" opacity="0"/>
+          <circle cx="52" cy="182" r="13" fill="#3c4252"/>
+          <path d="M70 46 C120 46 120 90 170 92" stroke="#c99530" stroke-width="2" fill="none" opacity=".7"/>
+          <path d="M66 96 C118 96 124 100 170 100" stroke="#8a6a24" stroke-width="2" fill="none" opacity=".7"/>
+          <path d="M63 140 C120 140 128 110 170 108" stroke="#c0443a" stroke-width="2" fill="none" opacity=".7"/>
+          <path d="M68 182 C120 182 128 122 170 116" stroke="#6b7284" stroke-width="2" fill="none" opacity=".7"/>
+          <rect x="170" y="72" width="150" height="26" rx="6" fill="#2c3140"/>
+          <rect x="170" y="106" width="126" height="26" rx="6" fill="#2c3140"/>
+          <rect x="170" y="140" width="140" height="26" rx="6" fill="#2c3140"/>
+          <rect x="180" y="79" width="80" height="7" rx="3.5" fill="#e6b455"/>
+          <rect x="180" y="113" width="60" height="7" rx="3.5" fill="#c99530"/>
+          <rect x="180" y="147" width="72" height="7" rx="3.5" fill="#c0443a"/>
+          <rect x="180" y="86" width="110" height="5" rx="2.5" fill="#4a5064"/>
+          <rect x="180" y="120" width="96" height="5" rx="2.5" fill="#4a5064"/>
+          <rect x="180" y="154" width="104" height="5" rx="2.5" fill="#4a5064"/>
+          <rect x="170" y="182" width="150" height="30" rx="6" fill="#232733" stroke="#3f4555" stroke-width="1"/>
+          <rect x="182" y="192" width="54" height="8" rx="4" fill="#6b7284"/>
+          <rect x="244" y="192" width="62" height="8" rx="4" fill="#3f4555"/>
+        </svg>
+        <figcaption>线索 → 条目 → 观点：黑料社页面的信息组织方式</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= EVENTS ================= -->
+  <section id="events" aria-labelledby="events-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="events-title">热门事件条目</h2>
+        <p>按话题类型归档，点击标签可筛选</p>
+        <a class="more" href="#timeline">查看事件脉络 →</a>
+      </div>
+
+      <div class="filter-bar" role="search">
+        <label for="kw">关键词</label>
+        <input type="search" id="kw" placeholder="输入标题或标签关键词筛选" autocomplete="off">
+        <div class="chips" id="chips" role="group" aria-label="话题筛选">
+          <button type="button" class="chip" data-cat="all" aria-pressed="true">全部</button>
+          <button type="button" class="chip" data-cat="网络热点" aria-pressed="false">网络热点</button>
+          <button type="button" class="chip" data-cat="公众人物" aria-pressed="false">公众人物</button>
+          <button type="button" class="chip" data-cat="平台规则" aria-pressed="false">平台规则</button>
+        </div>
+      </div>
+
+      <div class="grid" id="card-grid">
+
+        <article class="card" data-cat="网络热点" data-text="短视频剪辑争议 二次创作 授权边界">
+          <span class="kicker">网络热点</span>
+          <h3><a href="#guide">短视频二次创作争议：授权边界在哪里</a></h3>
+          <p>围绕影视素材二次剪辑的讨论持续升温。平台方强调版权授权流程，创作者关注合理使用的空间，双方分歧集中在“多少算引用”这一模糊地带。</p>
+          <div class="tagline"><span>版权</span><span>二次创作</span></div>
+          <div class="meta"><span>事件梳理</span><span>阅读 6 分钟</span></div>
+        </article>
+
+        <article class="card" data-cat="公众人物" data-text="公开声明 回应 事实核查 时间线">
+          <span class="kicker">公众人物</span>
+          <h3><a href="#guide">面对争议声明的三种常见写法</a></h3>
+          <p>公开回应通常包含事实澄清、态度表达与后续处理三部分。观察多起事件可以发现，缺少时间线的声明往往难以获得读者认可，反而延长讨论周期。</p>
+          <div class="tagline"><span>声明</span><span>事实核查</span></div>
+          <div class="meta"><span>观点整理</span><span>阅读 5 分钟</span></div>
+        </article>
+
+        <article class="card" data-cat="平台规则" data-text="内容审核 申诉 账号处理 规则说明">
+          <span class="kicker">平台规则</span>
+          <h3><a href="#guide">内容被处理后，申诉流程怎么走</a></h3>
+          <p>多数平台设有初审与复审两级通道。提交申诉时附上原始素材与发布时间截图，通常比单纯文字说明更容易被受理，处理结果也会以站内通知形式反馈。</p>
+          <div class="tagline"><span>审核</span><span>申诉</span></div>
+          <div class="meta"><span>操作说明</span><span>阅读 4 分钟</span></div>
+        </article>
+
+        <article class="card" data-cat="网络热点" data-text="截图传播 断章取义 核实 信息素养">
+          <span class="kicker">网络热点</span>
+          <h3><a href="#guide">一张截图如何被断章取义地传播</a></h3>
+          <p>截取片段、隐去上下文、加速转发，是信息失真的常见路径。核实时可回到最早发布源，比对完整时间与前后对话，再判断内容是否被剪辑。</p>
+          <div class="tagline"><span>核实</span><span>信息素养</span></div>
+          <div class="meta"><span>方法整理</span><span>阅读 5 分钟</span></div>
+        </article>
+
+        <article class="card" data-cat="公众人物" data-text="数据来源 引用 可信度 统计口径">
+          <span class="kicker">公众人物</span>
+          <h3><a href="#guide">引用数据前先确认统计口径</a></h3>
+          <p>同一组数字在不同统计范围下可能得出相反结论。阅读爆料类内容时，关注样本量、统计周期与来源机构，能有效降低被误导的概率。</p>
+          <div class="tagline"><span>数据</span><span>来源</span></div>
+          <div class="meta"><span>阅读提示</span><span>阅读 4 分钟</span></div>
+        </article>
+
+        <article class="card" data-cat="平台规则" data-text="评论区 讨论氛围 社区 治理">
+          <span class="kicker">平台规则</span>
+          <h3><a href="#guide">评论区治理：从禁言到分级引导</a></h3>
+          <p>部分社区尝试用分级提示替代直接删除，先提醒后处理。实践表明，明确规则文本并公开处理依据，比单纯提高处罚力度更能稳定讨论氛围。</p>
+          <div class="tagline"><span>社区</span><span>治理</span></div>
+          <div class="meta"><span>观察记录</span><span>阅读 6 分钟</span></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section id="timeline" aria-labelledby="tl-title" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="tl-title">一起事件的完整脉络</h2>
+        <p>以“素材授权争议”为例，展示黑料社如何梳理条目</p>
+      </div>
+      <div class="feat">
+        <article class="feat-main">
+          <div class="banner">
+            <svg viewBox="0 0 640 200" role="img" aria-label="事件脉络示意图：从发布到回应的四个阶段">
+              <rect width="640" height="200" fill="#232733"/>
+              <line x1="70" y1="100" x2="570" y2="100" stroke="#414756" stroke-width="3"/>
+              <circle cx="110" cy="100" r="14" fill="#c99530"/>
+              <circle cx="260" cy="100" r="14" fill="#a97c25"/>
+              <circle cx="410" cy="100" r="14" fill="#c0443a"/>
+              <circle cx="545" cy="100" r="14" fill="#6b7284"/>
+              <text x="110" y="145" fill="#d7d4ca" font-size="13" text-anchor="middle" font-family="sans-serif">发布</text>
+              <text x="260" y="145" fill="#d7d4ca" font-size="13" text-anchor="middle" font-family="sans-serif">扩散</text>
+              <text x="410" y="145" fill="#d7d4ca" font-size="13" text-anchor="middle" font-family="sans-serif">回应</text>
+              <text x="545" y="145" fill="#d7d4ca" font-size="13" text-anchor="middle" font-family="sans-serif">沉淀</text>
+              <text x="110" y="62" fill="#8b8e98" font-size="11" text-anchor="middle" font-family="sans-serif">原始内容</text>
+              <text x="260" y="62" fill="#8b8e98" font-size="11" text-anchor="middle" font-family="sans-serif">剪辑转载</text>
+              <text x="410" y="62" fill="#8b8e98" font-size="11" text-anchor="middle" font-family="sans-serif">多方说明</text>
+              <text x="545" y="62" fill="#8b8e98" font-size="11" text-anchor="middle" font-family="sans-serif">规则更新</text>
+            </svg>
+          </div>
+          <div class="body">
+            <h3>从一条素材到一次规则讨论</h3>
+            <p>
+              这类事件通常起于一段被广泛转发的素材。第一阶段是原始内容发布，第二阶段是剪辑与转载带来的扩散，第三阶段出现当事人或平台方的说明，第四阶段则沉淀为规则层面的讨论。黑料社在整理时会把每个阶段的时间点、信息源和各方表述并列呈现，读者可以自行对照。
+            </p>
+            <p>
+              需要说明的是，条目内容以公开可查的信息为限，未确认的部分会明确标注“待核实”，不做推测性补充。这也是阅读此类内容时最值得保留的习惯：先区分事实与判断，再决定是否转发。
+            </p>
+          </div>
+        </article>
+        <ol class="timeline">
+          <li>
+            <time>阶段一 · 原始发布</time>
+            <strong>素材首次公开</strong>
+            <span>记录发布时间、发布者身份与原始内容形态，作为后续比对的基准。</span>
+          </li>
+          <li>
+            <time>阶段二 · 扩散传播</time>
+            <strong>剪辑与转载出现</strong>
+            <span>标注二次加工方式，区分完整转载与片段截取，避免把剪辑版当作原始版本。</span>
+          </li>
+          <li>
+            <time>阶段三 · 多方回应</time>
+            <strong>声明与说明陆续发布</strong>
+            <span>并列呈现各方表述，保留原文措辞，不替他方概括立场。</span>
+          </li>
+          <li>
+            <time>阶段四 · 规则沉淀</time>
+            <strong>平台调整处理口径</strong>
+            <span>关注规则文本是否公开、适用范围是否明确，这是讨论能否收敛的关键。</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GUIDE ================= -->
+  <section id="guide" class="guide" aria-labelledby="guide-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="guide-title">黑料社阅读指南</h2>
+        <p>三条使用建议，帮助你更快找到有效信息</p>
+      </div>
+      <div class="prose-grid prose">
+        <div>
+          <h3>先看条目结构，再看内容</h3>
+          <p>黑料社的每个条目都按“事件概述、时间脉络、各方说法、待核实项”四段组织。先扫一遍小标题，能迅速判断这条内容是否与你关心的话题相关，也便于把不同来源的说法放在同一框架下比较，减少来回跳转的时间。</p>
+        </div>
+        <div>
+          <h3>区分“已确认”与“待核实”</h3>
+          <p>网络爆料中常混杂着当事人陈述、旁观者转述与二次加工。页面会用标注提示信息状态：有原始出处的写明确认，仅有单一来源的标为待核实。读者据此判断可信程度，比笼统地说“网上都这么讲”更有参考价值。</p>
+        </div>
+        <div>
+          <h3>用标签做交叉浏览</h3>
+          <p>同一话题往往牵涉版权、平台规则、公众表达等多个面向。通过页面顶部的标签筛选，可以把同一类别的事件横向排列，观察不同事件在同类问题上的处理差异，这类横向对比常比单条内容更能说明问题。</p>
+        </div>
+        <div>
+          <h3>转发前做一次来源回查</h3>
+          <p>遇到截图或短视频时，先找最早发布源，确认发布时间与完整上下文。若原始内容已删除，可查看是否有存档或多家独立来源的交叉印证。黑料社在条目中保留来源链接名称，方便读者回到源头自行核对，而不是只依赖二手概述。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VOICES ================= -->
+  <section id="voices" aria-labelledby="voices-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="voices-title">读者观点</h2>
+        <p>来自阅读者的反馈记录，代表个人看法</p>
+      </div>
+      <div class="voices">
+        <blockquote class="voice">
+          <p>“以前刷到截图就直接转，现在会先看一眼有没有完整时间线。黑料社把各方说法分开列出来这一点，对我帮助最大。”</p>
+          <footer><b>读者 A</b> · 关注网络热点</footer>
+        </blockquote>
+        <blockquote class="voice">
+          <p>“标签筛选挺好用，我想看平台规则类的条目，点一下就集中了，不用在长列表里翻。”</p>
+          <footer><b>读者 B</b> · 关注平台规则</footer>
+        </blockquote>
+        <blockquote class="voice">
+          <p>“待核实项单独标出来是加分项。有些内容确实没法立刻确认，写清楚状态比含糊带过更让人放心。”</p>
+          <footer><b>读者 C</b> · 内容创作者</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DOWNLOADS ================= -->
+  <section id="downloads" aria-labelledby="dl-title" style="padding-top:0;">
+    <div class="wrap">
+      <div class="dl-box">
+        <div>
+          <h3>事件条目资料包</h3>
+          <p>整理热门事件的标题、时间脉络与观点摘要，便于离线阅读与二次查阅。资料包内容随条目更新同步调整，具体版本信息以发布说明为准。</p>
+          <div class="dl-note">下载入口正在准备中，开放后将在此处提供。</div>
+        </div>
+        <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>黑料社</h4>
+        <p style="margin:0;line-height:1.9;">聚合网络热门事件与爆料资讯，按条目梳理时间脉络、并列多方说法，并提供标签筛选与阅读方法，帮助读者在纷杂信息中快速定位有效内容。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#events">热门事件条目</a></li>
+          <li><a href="#timeline">事件脉络示例</a></li>
+          <li><a href="#guide">阅读指南</a></li>
+          <li><a href="#voices">读者观点</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li>条目信息以公开来源为限</li>
+          <li>未确认内容标注“待核实”</li>
+          <li>转发前建议回查原始出处</li>
+          <li>资料包入口暂未开放</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>黑料社 · 热点事件与爆料资讯聚合页面</span>
+      <span>内容仅供阅读参考，请自行核对信息来源</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var grid = document.getElementById('card-grid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#chips .chip'));
+  var input = document.getElementById('kw');
+  var activeCat = 'all';
+
+  function apply(){
+    var q = (input.value || '').trim().toLowerCase();
+    cards.forEach(function(card){
+      var catOk = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
+      var text = (card.getAttribute('data-text') || '') + card.textContent;
+      var kwOk = !q || text.toLowerCase().indexOf(q) !== -1;
+      card.style.display = (catOk && kwOk) ? '' : 'none';
+    });
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activeCat = btn.getAttribute('data-cat');
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      apply();
+    });
+  });
+
+  input.addEventListener('input', apply);
+})();
+</script>
+</body>
+          </html>
